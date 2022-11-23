@@ -4,14 +4,23 @@ void main(){
   String color = "Green and Yellow";
   String flavor = "Sweet and Sour";
   int dayFromCollection = 40;
-  bool isLoosed = funcIsLoosed(dayFromCollection);
+  bool isRipe = funcIsRipe(dayFromCollection);
 
-  printLoose("Grape", 45, color: "purple");
+  // printLoose("Grape", 45, color: "purple");
 
   int quantosDias = funcQuantosDiasMadura(dayFromCollection);
-  print(quantosDias);
+  // print(quantosDias);
 
-  funcRecursive(1, 10);
+  // funcRecursive(1, 10);
+
+  Fruit fruit1 = Fruit(name, weight, color, flavor, dayFromCollection);
+  Fruit fruit2 = Fruit("Grape", 100, "Purple", "Sweet", 23);
+
+  print(fruit1.name);
+  print(fruit2.name + " " + fruit2.color);
+
+  fruit2.isItRipe(30);
+  fruit1.isItRipe(40);
 
 }
 
@@ -35,7 +44,7 @@ printLoose(String name, int days, {String? color}){
   }
 }
 
-bool funcIsLoosed(int days){
+bool funcIsRipe(int days){
   if (days >= 30){
     return true;
   } else {
@@ -56,4 +65,22 @@ funcRecursive(int cont, int stop){
   }
   funcRecursive(cont + 1, stop);
 }
+
+class Fruit{
+  String name;
+  double weight;
+  String color;
+  String flavor;
+  int dayFromCollection;
+  bool? isRipe;
+
+  Fruit(this.name, this.weight, this.color, this.flavor, this.dayFromCollection, {this.isRipe});
+
+  isItRipe(int daysToRipe){
+    isRipe = dayFromCollection >= daysToRipe;
+    print("Your $name was collected $dayFromCollection days ago and need $daysToRipe days for be ready for eat.");
+  }
+
+}
+
 
