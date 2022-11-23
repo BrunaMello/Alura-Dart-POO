@@ -22,10 +22,6 @@ void main(){
   macadam.printFood();
   lemon.printFood();
   lemon.makeJuice();
-
-
-
-
 }
 
 // Posicionais Obrigatorios (name, int)
@@ -83,7 +79,7 @@ class Food{
 
 }
 
-class Vegetables extends Food{
+class Vegetables extends Food implements Cake{
   bool isNeedCooking;
 
   Vegetables(String name, double weight, String color, this.isNeedCooking)
@@ -96,9 +92,24 @@ class Vegetables extends Food{
       print("$name do not need to cook");
     }
   }
+
+  @override
+  void baking() {
+    // TODO: implement baking
+  }
+
+  @override
+  void getIngredient() {
+    // TODO: implement getIngredient
+  }
+
+  @override
+  void makeDough() {
+    // TODO: implement makeDough
+  }
 }
 
-class Fruit extends Food{
+class Fruit extends Food implements Cake{
   String flavor;
   int dayFromCollection;
   bool? isRipe;
@@ -113,6 +124,24 @@ class Fruit extends Food{
 
   void makeJuice(){
 
+  }
+
+  @override
+  void baking() {
+    // TODO: implement baking
+    print("Put in the oven");
+  }
+
+  @override
+  void getIngredient() {
+    // TODO: implement getIngredient
+    print("Get the $name");
+  }
+
+  @override
+  void makeDough() {
+    // TODO: implement makeDough
+    print("Mixing the ingredients");
   }
 
 }
@@ -137,6 +166,27 @@ class OilSeeds extends Fruit{
 
   OilSeeds(String name, double weight, String color, String flavour, int daysFromCollected, this.naturalOilLevel)
       : super(name, weight, color, flavour, daysFromCollected);
+
+  @override
+  void makeDough() {
+    // TODO: implement makeDough
+    print("Get the shell off");
+    super.makeDough();
+  }
+}
+
+abstract class Cake{
+  // ingredients
+  void getIngredient();
+
+  // cake dough
+  void makeDough();
+
+  // baking
+  void baking();
+
+
+
 
 }
 
