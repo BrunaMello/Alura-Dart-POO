@@ -56,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669080708249</updated>
       <workItem from="1669080709748" duration="2561000" />
-      <workItem from="1669226177351" duration="1961000" />
+      <workItem from="1669226177351" duration="4406000" />
     </task>
     <task id="LOCAL-00001" summary="First Commit">
       <created>1669080798454</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1669083216943</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="3 - Classes">
+      <created>1669228178121</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1669228178121</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -100,6 +107,8 @@
     <MESSAGE value="First Commit" />
     <MESSAGE value="1 - POO" />
     <MESSAGE value="2 - Functions and Scopes" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 - Functions and Scopes" />
+    <MESSAGE value="3 - Classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="3 - Classes" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>

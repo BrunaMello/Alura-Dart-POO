@@ -9,18 +9,22 @@ void main(){
   // printLoose("Grape", 45, color: "purple");
 
   int quantosDias = funcQuantosDiasMadura(dayFromCollection);
-  // print(quantosDias);
 
   // funcRecursive(1, 10);
 
-  Fruit fruit1 = Fruit(name, weight, color, flavor, dayFromCollection);
-  Fruit fruit2 = Fruit("Grape", 100, "Purple", "Sweet", 23);
+  Vegetables mandioca1 = Vegetables("Macaxeira", 1500.0, "Brown", true);
+  Fruit banana1 = Fruit("Banana", 75, "Yellow", "Sweet", 12);
+  OilSeeds macadam = OilSeeds("Macadamia", 2, "Yellowish", "Sweet", 12, 35);
+  Citrus lemon = Citrus("Lemon", 155, "Green", "Sour", 5, 9);
 
-  print(fruit1.name);
-  print(fruit2.name + " " + fruit2.color);
+  mandioca1.printFood();
+  banana1.printFood();
+  macadam.printFood();
+  lemon.printFood();
+  lemon.makeJuice();
 
-  fruit2.isItRipe(30);
-  fruit1.isItRipe(40);
+
+
 
 }
 
@@ -66,21 +70,77 @@ funcRecursive(int cont, int stop){
   funcRecursive(cont + 1, stop);
 }
 
-class Fruit{
+class Food{
   String name;
   double weight;
   String color;
+
+  Food(this.name, this.weight, this.color);
+
+  void printFood(){
+    print("This $name is $weight weight and its color is $color.");
+  }
+
+}
+
+class Vegetables extends Food{
+  bool isNeedCooking;
+
+  Vegetables(String name, double weight, String color, this.isNeedCooking)
+      : super(name, weight, color);
+
+  void cook(){
+    if(isNeedCooking){
+      print("$name is cooking");
+    } else {
+      print("$name do not need to cook");
+    }
+  }
+}
+
+class Fruit extends Food{
   String flavor;
   int dayFromCollection;
   bool? isRipe;
 
-  Fruit(this.name, this.weight, this.color, this.flavor, this.dayFromCollection, {this.isRipe});
+  Fruit(String name, double weight, String color, this.flavor, this.dayFromCollection, {this.isRipe})
+      : super(name, weight, color);
 
-  isItRipe(int daysToRipe){
+  void isItRipe(int daysToRipe){
     isRipe = dayFromCollection >= daysToRipe;
     print("Your $name was collected $dayFromCollection days ago and need $daysToRipe days for be ready for eat.");
   }
 
+  void makeJuice(){
+
+  }
+
 }
+
+class Citrus extends Fruit{
+  double citrusLevel;
+
+  Citrus(String name, double weight, String color, String flavour, int daysFromCollected, this.citrusLevel)
+      : super(name, weight, color, flavour, daysFromCollected);
+
+  void isThereSoda(bool exists){
+    if(exists){
+      print("There is $name soda.");
+    } else {
+      print("There is not $name soda.");
+    }
+  }
+}
+
+class OilSeeds extends Fruit{
+  double naturalOilLevel;
+
+  OilSeeds(String name, double weight, String color, String flavour, int daysFromCollected, this.naturalOilLevel)
+      : super(name, weight, color, flavour, daysFromCollected);
+
+}
+
+
+
 
 
